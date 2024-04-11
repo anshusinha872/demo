@@ -1,15 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3443;
 
 // Middleware
 app.use(bodyParser.json());
+app.use(cors()); // Add CORS middleware
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/node_user_crud', {
+mongoose.connect('mongodb://admin:Anshu.%401237Ss@139.59.24.125:27017/', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

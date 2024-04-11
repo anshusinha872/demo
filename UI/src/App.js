@@ -14,7 +14,7 @@ function App() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/users');
+      const response = await axios.get('http://localhost:3443/users');
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -23,7 +23,7 @@ function App() {
 
   const addUser = async () => {
     try {
-      await axios.post('http://localhost:3000/users', { name, email, age });
+      await axios.post('http://localhost:3443/users', { name, email, age });
       fetchUsers();
       setName('');
       setEmail('');
@@ -35,7 +35,7 @@ function App() {
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/users/${id}`);
+      await axios.delete(`http://localhost:3443/users/${id}`);
       fetchUsers();
     } catch (error) {
       console.error('Error deleting user:', error);
@@ -44,7 +44,7 @@ function App() {
 
   const updateUser = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/users/${id}`, { name, email, age });
+      await axios.put(`http://localhost:3443/users/${id}`, { name, email, age });
       fetchUsers();
       setEditingId(null);
       setName('');
